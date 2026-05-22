@@ -1,6 +1,12 @@
 apiVersion: v1
-kind: pod
+kind: Pod
 metadata:
-  name: my-pod
+  name: ramya-fitnesstracker
+  namespace: my-report
+
 spec:
   containers:
+    - name: ramya-fitnesstracker
+      image: ramyar098/fitness-tracker
+      ports:
+        - containerPort: 3000
