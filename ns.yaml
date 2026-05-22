@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: ramya-fitnesstracker
-  namespace: my-report
+  namespace: ramya-pod
 
 spec:
   containers:
