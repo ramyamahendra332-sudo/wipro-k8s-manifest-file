@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+
+metadata:
+  name: ramya-replicaset
+  labels:
+    app: web
+
+spec:
+  replicas: 3
+
+  selector:
+    matchLabels:
+      web: nginx
+
+  template:
+    metadata:
+      labels:
+        web: nginx
+
+    spec:
+      containers:
+        - image: nginx
+          name: nginx-container
+          ports:
+            - containerPort: 80
