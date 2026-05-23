@@ -2,25 +2,25 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: nginx
+  name: bank-app
   labels:
-    app: web
+    app: bank-app
 
 spec:
-  replicas: 3
+  replicas: 2
 
   selector:
     matchLabels:
-      app: web
+      app: bank-app
 
   template:
     metadata:
       labels:
-        app: web
+        app: bank-app
 
     spec:
       containers:
-        - name: ramya-container
-          image: nginx
+        - name: ramya-bankcontainer
+          image: ramyar098/bank-app:latest
           ports:
             - containerPort: 80
