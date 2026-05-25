@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vegetable-app
+  labels:
+    app: vegetable-app
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: vegetable-app
+
+  template:
+    metadata:
+      labels:
+        app: vegetable-app
+
+    spec:
+      containers:
+        - name: vegetable-container
+          image: ramyar098/vegetable-app:latest
+          ports:
+            - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vegetable-service
+
+spec:
+  selector:
+    app: vegetable-app
+
+  ports:
+    - protocol: TCP
+      port: 85
+      targetPort: 80
+
+  type: ClusterIP
