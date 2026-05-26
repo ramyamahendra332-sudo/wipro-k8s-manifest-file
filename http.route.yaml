@@ -6,21 +6,11 @@ metadata:
 spec:
   parentRefs:
     - name: ramya-gateway
-      sectionName: http
-
   rules:
     - matches:
         - path:
             type: PathPrefix
-            value: /api/bank-app
-
-      filters:
-        - type: URLRewrite
-          urlRewrite:
-            path:
-              type: ReplacePrefixMatch
-              replacePrefixMatch: /bank-app
-
+            value: /
       backendRefs:
         - name: my-service
           port: 85
