@@ -21,8 +21,13 @@ spec:
       containers:
         - name: vegetable-container
           image: ramyar098/vegetable-app:latest
+
           ports:
             - containerPort: 80
+
+          envFrom:
+            - configMapRef:
+                name: ramya-config
 
 ---
 apiVersion: v1
